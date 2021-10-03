@@ -1,0 +1,13 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:lambda"
+
+    - path: "app/Main.hs"
+      component: "lambda:exe:bootstrap"
+
+    - path: "app/Request.hs"
+      component: "lambda:exe:bootstrap"
+
+    - path: "app/Response.hs"
+      component: "lambda:exe:bootstrap"
