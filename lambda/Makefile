@@ -3,6 +3,7 @@
 FUNCTION_NAME := bot
 CABAL_DOCKER_IMAGE := cabal-on-al2
 CABAL := docker run --rm -v $(PWD):/code -v $(PWD)/tmp/cabal:/root/.cabal $(CABAL_DOCKER_IMAGE) --builddir=/root/.cabal/build
+SRC_FILES := $(shell find src/ -name "*.hs")
 
 deploy: bootstrap.zip
 	aws lambda update-function-code --function-name $(FUNCTION_NAME) --zip-file 'fileb://bootstrap.zip'
@@ -10,7 +11,7 @@ deploy: bootstrap.zip
 %.zip: %
 	zip $@ $<
 
-bootstrap: app/*.hs src/*/*.hs .cabal.touch
+bootstrap: app/*.hs $(SRC_FILES) .cabal.touch
 	rm -f bootstrap || true
 	$(CABAL) update
 	$(CABAL) --installdir=. --install-method=copy install $@
