@@ -7,6 +7,8 @@ Event subscription を受け取れる Lambda function を作ってみる。
 
 terraform の state を安置する S3 bucket を用意し `terraform/provider.tf` の `backend` を書き換える。
 
+シークレットを保存するための Secret Manager も事前に用意しておく。ここでは `for-bot` という名前を仮定している。
+
 terraform コマンドを用意する。
 
 ```
