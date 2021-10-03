@@ -23,8 +23,10 @@ extra-source-files: CHANGELOG.md
 
 library
   exposed-modules:
+    Bot.AWS.S3
     Bot.AWS.SecretsManager
     Bot.Handler.EventSubscriber
+    Bot.Slack.API.Conversations.Replies
     Bot.Slack.Auth
     Bot.Slack.Event
     Bot.Slack.Types
@@ -38,12 +40,15 @@ library
     , aeson                    >=1.5   && <2
     , aeson-casing             ^>=0.2
     , amazonka                 >=1.6   && <2
+    , amazonka-s3              >=1.6   && <2
     , amazonka-secretsmanager  >=1.6   && <2
     , base                     >=4.14  && <5
     , base16-bytestring        >=1.0   && <2
     , bytestring               ^>=0.10
+    , conduit-extra            >=1.3   && <2
     , containers               ^>=0.6
     , cryptohash-sha256        ^>=0.11
+    , http-conduit             >=2.3   && <3
     , lens                     >=5.0   && <6
     , safe-exceptions          ^>=0.1.7
     , serverless-haskell       ^>=0.12
