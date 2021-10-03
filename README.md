@@ -21,3 +21,12 @@ $ cd terraform
 $ terraform init
 $ terraform apply
 ```
+
+## Lambda function
+
+terraform で作った空 Lambda function に実行化ファイルを埋め込む。
+
+```
+$ cd lambda
+$ make deploy
+```
